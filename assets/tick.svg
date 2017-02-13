@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="25px" viewBox="0 0 26 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>tick</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Screen-1" sketch:type="MSArtboardGroup" transform="translate(-48.000000, -641.000000)">
+            <g id="tab-bar" sketch:type="MSLayerGroup" transform="translate(0.000000, 625.000000)">
+                <g id="tick" transform="translate(48.500000, 15.000000)" sketch:type="MSShapeGroup">
+                    <rect id="bounds" x="1.5" y="0" width="25" height="25"></rect>
+                    <g id="group" transform="translate(0.000000, 0.500000)" stroke="#FFFFFF" stroke-width="1.5">
+                        <path fill="green" d="M0.086875,12.9973932 C0.086875,19.9027503 5.68330357,25.4973932 12.586875,25.4973932 C19.4904464,25.4973932 25.086875,19.9027503 25.086875,12.9973932 C25.086875,6.09560746 19.4904464,0.497393177 12.586875,0.497393177 C5.68330357,0.497393177 0.086875,6.09560746 0.086875,12.9973932 Z" id="oval"></path>
+                        <path d="M5.947675,12.9309667 L10.2041787,17.1139635 L18.646075,8.81565227" id="line"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

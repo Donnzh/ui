@@ -1,0 +1,296 @@
+body {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+}
+
+.wrapper>* {
+    padding: 10px;
+    /*flex: 1 100%;*/
+}
+
+.header {
+    background: #8C88FF;
+    width: 100%;
+
+}
+
+.menu_title {
+    color: white;
+    font-size: 26px;
+}
+
+.app_nav {
+    height: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.task_nav {
+    height: 50px;
+    width: 100%;
+}
+
+.ctrl {
+    width: 100%;
+    position: absolute;
+    top: 30px;
+}
+
+.nav_left_button {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    outline: none;
+    /*font-size: 30px;*/
+    cursor: pointer;
+    float: left;
+    margin-left: -15px;
+    margin-top: -35px;
+    padding-top: 14px;
+    background: #8C88FF;
+    z-index: 4;
+}
+
+.nav_right_button {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    outline: none;
+    /*font-size: 30px;*/
+    cursor: pointer;
+    float: right;
+    margin-top: -35px;
+    margin-right: -14px;
+    padding-top: 14px;
+
+    background: #8C88FF;
+    z-index: 4;
+}
+
+.circle_element_pnael {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.circle_elements_wrap {
+    left: 30px;
+    width: 65%;
+    position: absolute;
+    white-space: nowrap;
+}
+
+li.circle {
+    font-size: 15px;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    border-radius: 50%;
+    background: transparent;
+    margin: 0.2em 1em;
+    display: inline-block;
+    color: white;
+    position: relative;
+    ;
+    z-index: 0;
+    border: 2px solid white;
+}
+
+li.circle::before {
+    content: '';
+    position: absolute;
+    top: .9em;
+    left: -2.05em;
+    width: 2.05em;
+    height: .14em;
+    background: white;
+    z-index: -1;
+}
+
+li:first-child::before {
+    display: none;
+}
+
+#active {
+    top: -0.1em;
+    width: 2.2em;
+    height: 2.2em;
+    background: green;
+    border: 3px solid green;
+    box-shadow: inset 0 0 0 3px #8C88FF;
+}
+
+#active::before {
+    content: '';
+    position: absolute;
+    top: 1em;
+    left: -2.2em;
+    width: 2.1em;
+    height: .14em;
+    background: green;
+    z-index: -1;
+}
+
+
+
+.nav_left_button, .nav_right_button, .pie_chart, .line, .menu, .tick_footer, .menu_title, .menu_picture, .circle {
+    display: inline-block;
+}
+
+.footer {
+    background: #6563A4;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+#mainTaskPanel {
+    text-align: left;
+    background: white;
+    width: 100%;
+    /*set the min-height here as it will affect li.task*/
+    min-height: 300px;
+    max-height: 1000px;
+}
+
+.task_panel {
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.task_wrapper {
+    height: 80%;
+    width: 65%;
+    left: 30px;
+    position: absolute;
+    white-space: nowrap;
+    top: 8%;
+    bottom: 12%;
+}
+
+li.task {
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    max-width: 250px;
+    text-align: center;
+    background: rgb(243, 242, 244);
+    margin: 0.2em 1em;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition:left 1s linear;
+
+
+}
+
+li.task::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 70%;
+    background: rgb(195, 138, 242);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+}
+
+.task_btn {
+    width: 53%;
+    height: 12%;
+    top: 75%;
+    position: relative;
+
+    background-color:#44c767;
+  	-moz-border-radius:28px;
+  	-webkit-border-radius:28px;
+  	border-radius:28px;
+  	border:1px solid #18ab29;
+  	display:inline-block;
+  	cursor:pointer;
+  	color:#ffffff;
+  	font-family:Arial;
+    text-align: center;
+  	font-size:100%;
+  	padding:16px 31px;
+  	text-decoration:none;
+  	text-shadow:0px 1px 0px #2f6627;
+}
+
+.task_btn:hover {
+	background-color:#5cbf2a;
+}
+.task_btn:active {
+	position:relative;
+  top: 76%;
+}
+
+
+
+.task_img {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 35%;
+    z-index: 1;
+    visibility:hidden; opacity:0;
+    -webkit-animation-name: task_img;
+    animation-name: task_img;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes task_img {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+@keyframes task_img {
+0% {opacity: 0;}
+100% {opacity: 1;}
+}
+.visible{
+  visibility:visible;
+  opacity:1;
+}
+
+.task_text {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  left: 22%;
+  top: 15%;
+  font-size: 150%;
+  z-index: 1;
+  color:white;
+}
