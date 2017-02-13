@@ -139,8 +139,12 @@ for(var i = 0; i < subtopics.length; i++) {
     if (subtopics[i].completed){
       img.style.visibility = 'visible';
       circle.setAttribute("id", "active" );
+      img.setAttribute("completed", true );
+
     }else{
       circle.setAttribute("id", ("c"+i) );
+      img.setAttribute("completed", false );
+
     }
 
     btn.className = "task_btn";
@@ -150,9 +154,9 @@ for(var i = 0; i < subtopics.length; i++) {
 
     text.className = "task_text";
     text.innerHTML = `${subtopics[i].index}. ${subtopics[i].title}`;
+    task.appendChild(text);
     task.appendChild(btn);
     task.appendChild(img);
-    task.appendChild(text);
 
     circleMover.appendChild(circle);
     taskMover.appendChild(task);
@@ -171,20 +175,24 @@ for(var i = 0; i < subtopics.length; i++) {
 
 };
 
-
-
 function taskBtnClick(){
-  if (!this.nextSibling.getAttribute("completed")) {
-        this.nextSibling.style.visibility = 'visible';
-        this.nextSibling.setAttribute("completed", true);
-        let circleId = `c${this.getAttribute("ref")}`;
-        document.getElementById(circleId).setAttribute("id","active");
+  let flag = this.nextSibling.getAttribute("completed");
+  console.log(flag);
+  if (flag === "false") {
+    subtopics[this.getAttribute("ref")].completed = true;
+    this.nextSibling.style.visibility = 'visible';
+    this.nextSibling.setAttribute("completed", true);
+    let circleId = `c${this.getAttribute("ref")}`;
+    document.getElementById(circleId).setAttribute("id","active");
+  }
+  else if(flag) {
+    subtopics[this.getAttribute("ref")].completed = false;
+    this.nextSibling.style.visibility = 'hidden';
+    this.nextSibling.setAttribute("completed", false);
+    let circles = document.getElementsByClassName("circle");
+    circles[this.getAttribute("ref")].setAttribute("id",`c${this.getAttribute("ref")}`)
   }
 }
-
-
-
-
 
 
 startDrag(mainTaskPanel, taskMover)
