@@ -2,8 +2,6 @@ const topic = {
   title: "Geometry"
 };
 
-document.getElementById('title').innerHTML = topic.title;
-
 const subtopics = [
   { index: 1, title: "Triangles", completed: true },
   { index: 2, title: "Angle Sum", completed: true },
@@ -16,7 +14,7 @@ const subtopics = [
   { index: 9, title: "Topic Test", completed: false }
 ];
 
-let taskMover =document.getElementById("task_mover")
+let taskMover =document.getElementById("taskMover")
 let mainTaskPanel = document.getElementById('mainTaskPanel');
 let circlePanel = document.getElementById('circlePanel');
 let circleMover = document.getElementById('circleMover');
@@ -74,16 +72,16 @@ let startDrag = function(bar, target, callback){
 		if(params.flag){
 			let nowX = e.clientX, nowY = e.clientY;
 			let disX = nowX - params.currentX, disY = nowY - params.currentY;
+      let acturalDit = parseInt(params.left) + disX +0 + "px";
       target.style.left = parseInt(params.left) + disX +0 + "px";
 
       let targetLeftVal = target.getBoundingClientRect().left
+      let elWidth = target.scrollWidth
       switch (true) {
-        //TODO: number need to dymanic
-        case (targetLeftVal < (-1938)):  target.style.left = -1938 + "px";
-        console.log(target.style.left, target.getBoundingClientRect().left);
-
+        //TODO: number need to dymanic, smoothing the drag
+        case (targetLeftVal < (-elWidth+200)):  target.style.left = -elWidth + 500 + "px";
         break;
-        case (targetLeftVal > 250):  target.style.left = 30 + "px";
+        case (targetLeftVal > 500):  target.style.left = 30 + "px";
         break;
       }
 		}
@@ -93,32 +91,27 @@ let startDrag = function(bar, target, callback){
 	}
 };
 
-function btnMover(bar, target, btnPre, btnNxt) {
-  btnPre.addEventListener('click', function(){
-    currentX = getCss(target,"left");
-    //TODO change number to variable
+function btnMover( $target, $btnPre, $btnNxt) {
+
+  $btnPre.on('click', function(){
+    currentX = $target.css('left');
       if(parseInt(currentX) >25) {
-        target.style.left = "30px"
+        $target.animate({"left": "30px"}, "fast");
       } else {
-        target.style.left = parseInt(currentX) + 40 + "px";
+        $target.animate({"left": "+=70px"}, "");
       }
   });
 
-  btnNxt.addEventListener('click', function(){
-    currentX = getCss(target,"left");
-    //TODO change number to variable
+  $btnNxt.on('click', function(){
+    currentX = $target.css('left');
     if(parseInt(currentX) < -320) {
-      target.style.left = "-330px"
+      $target.animate({"left": "-330"}, "fast");
     } else {
-      target.style.left = parseInt(currentX) - 40 + "px";
+       $target.animate({"left": "-=70px"}, "");
     }
   });
 }
 
-
-//insert btn img to li.task
-// var circles = document.getElementsByClassName("circle");
-// var tasks = document.getElementsByClassName("task");
 
 for(var i = 0; i < subtopics.length; i++) {
 
@@ -135,7 +128,7 @@ for(var i = 0; i < subtopics.length; i++) {
     task.className = "task";
 
     img.className = "task_img";
-    img.src = './assets/tick.svg';
+    img.src = 'https://cdn.rawgit.com/Donnzh/ed39339463ff6ecbc696b6f6790c5be2/raw/16615cb153fd4fb10b5c5135e930c359683a7bbc/svgTick.svg';
     if (subtopics[i].completed){
       img.style.visibility = 'visible';
       circle.setAttribute("id", "active" );
@@ -164,20 +157,21 @@ for(var i = 0; i < subtopics.length; i++) {
     circle.setAttribute("ref", i );
     circle.addEventListener('click', function(e){
 
-        //TODO Change the attribute number to Varible
+        //TODO Change the attribute number to variable
         let ref = e.target.attributes[2].value;
         var singleTaskWidth = task.scrollWidth+2+30;
         pointedPosition = ref * singleTaskWidth;
         pointedPosition = pointedPosition + singleTaskWidth/2;
         let aimPostion = (mainTaskPanel.scrollWidth - 20)/2 ;
-        taskMover.style.left = (aimPostion - pointedPosition)+ "px";
+        let acturalMove = (aimPostion - pointedPosition)+ "px";
+        // jQuery for animation...
+        $("#taskMover").animate({"left": acturalMove}, "");
     })
 
 };
 
 function taskBtnClick(){
   let flag = this.nextSibling.getAttribute("completed");
-  console.log(flag);
   if (flag === "false") {
     subtopics[this.getAttribute("ref")].completed = true;
     this.nextSibling.style.visibility = 'visible';
@@ -197,7 +191,7 @@ function taskBtnClick(){
 
 startDrag(mainTaskPanel, taskMover)
 
-btnMover(circlePanel, circleMover,btnPre, btnNxt  )
+btnMover($("#circleMover"), $("#btnPre"), $("#btnNxt"))
 
 responsiveHeight()
 
@@ -205,6 +199,7 @@ function responsiveHeight() {
   mainTaskPanel.style.height = window.innerHeight -120 - 58 + "px";
 };
 
+document.getElementById('title').innerHTML = topic.title;
 
 window.onresize = function(event) {
     responsiveHeight()
