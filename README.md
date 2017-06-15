@@ -1,3 +1,3 @@
-# UI ,
+# slides
 
-a simple responsive UI, basic logic, a challenge
+simple responsive slides using Jquery, a challenge
