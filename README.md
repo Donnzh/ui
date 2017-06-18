@@ -2,5 +2,5 @@
 
 simple responsive slides using Jquery, a challenge
 
-todo: 
+TODO: 
 rewrite it using React.
