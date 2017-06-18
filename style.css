@@ -1,3 +1,6 @@
+
+ /*TODO: refector and DRY the css*/
+
 body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -22,13 +25,11 @@ body {
 
 .wrapper>* {
     padding: 10px;
-    /*flex: 1 100%;*/
 }
 
 .header {
     background: #8C88FF;
     width: 100%;
-
 }
 
 .menu_title {
@@ -59,7 +60,6 @@ body {
     height: 50px;
     border: 0;
     outline: none;
-    /*font-size: 30px;*/
     cursor: pointer;
     float: left;
     margin-left: -15px;
@@ -74,13 +74,11 @@ body {
     height: 50px;
     border: 0;
     outline: none;
-    /*font-size: 30px;*/
     cursor: pointer;
     float: right;
     margin-top: -35px;
     margin-right: -14px;
     padding-top: 14px;
-
     background: #8C88FF;
     z-index: 4;
 }
@@ -152,8 +150,6 @@ li:first-child::before {
     z-index: -1;
 }
 
-
-
 .nav_left_button, .nav_right_button, .pie_chart, .line, .menu, .tick_footer, .menu_title, .menu_picture, .circle {
     display: inline-block;
 }
@@ -209,8 +205,6 @@ li.task {
     border: 1px solid transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition:left 1s linear;
-
-
 }
 
 li.task::after {
@@ -218,14 +212,12 @@ li.task::after {
     position: absolute;
     left: 0px;
     top: 0px;
-
     width: 100%;
     height: 60%;
     background: rgb(195, 138, 242);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
     z-index: 0;
-
 }
 
 .task_btn {
@@ -244,14 +236,12 @@ li.task::after {
   	color:#ffffff;
     text-align: center;
   	font-size:100%;
-    /*padding-bottom: 16px 31px 20px 31px;*/
   	padding:16px 31px;
   	text-decoration:none;
   	text-shadow:0px 1px 0px #2f6627;
     border: none;
     outline:none;
     z-index: 1;
-
 }
 
 .task_btn:hover {
@@ -259,28 +249,24 @@ li.task::after {
 }
 .task_btn:active {
 	position:relative;
-  top: 51%;
+	top: 51%;
 }
-
-
 
 .task_img {
   width: 20%;
   height: 20%;
   top: -10%;
   margin: 0 auto;
-
   position: relative;
-    z-index: 1;
-    display:block;
-
-    visibility:hidden; opacity:0;
-    -webkit-animation-name: task_img;
-    animation-name: task_img;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+  z-index: 1;
+  display:block;
+  visibility:hidden; opacity:0;
+  -webkit-animation-name: task_img;
+  animation-name: task_img;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 .visible{
